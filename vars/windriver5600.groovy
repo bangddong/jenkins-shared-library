@@ -1,3 +1,3 @@
 def call() {
-    echo "Start Build With windrive 5.6.0.0"
+    echo "Start Build With windriver 5.6.0.0"
 }
