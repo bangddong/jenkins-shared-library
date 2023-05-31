@@ -6,7 +6,7 @@ pipeline {
         COMMIT_MSG = commonUtil.getCommitMsg()
     }
     stages {
-        stage('Test') {
+        stage('Test Library') {
             steps {
                 echo COMMIT_MSG
             }
