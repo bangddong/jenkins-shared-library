@@ -40,8 +40,8 @@ pipeline {
                 }
             }
             steps {
-                echo "Static Analysis"
-                testPolyspace()
+                echo "Analysis"
+                testPolySpace()
             }
         }
 
