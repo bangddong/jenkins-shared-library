@@ -3,14 +3,15 @@
 pipeline {
     agent any
     environment {
-        COMMIT_MSG = commonUtil.getCommitMsg()
+        JOB_TYPE = commonUtil.getJobType()
     }
     stages {
-        stage('Test Library') {
+        stage('Get JobType') {
             steps {
-                echo "commit message : ${COMMIT_MSG}"
+                echo "JobType : ${JOB_TYPE}"
             }
         }
+
     }
 }
 
