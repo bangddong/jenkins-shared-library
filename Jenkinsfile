@@ -9,6 +9,7 @@ pipeline {
         stage('Test Library') {
             steps {
                 echo COMMIT_MSG
+                echo "echo"
             }
         }
     }
