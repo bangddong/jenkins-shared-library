@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Get JobType') {
             steps {
-                echo "JobType : ${JOB_TYPE}"
+                echo "Job Type : ${JOB_TYPE}"
             }
         }
 
