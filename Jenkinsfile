@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Test Library') {
             steps {
-                echo COMMIT_MSG
+                echo "commit message : ${COMMIT_MSG}"
             }
         }
     }
