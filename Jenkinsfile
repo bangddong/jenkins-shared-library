@@ -4,6 +4,9 @@ pipeline {
     agent any
     environment {
         JOB_TYPE = commonUtils.getJobType()
+        BUILD_FLAG = JOB_TYPE.buildFlag
+        TEST_FLAG = JOB_TYPE.testFlag
+        DEPLOY_FLAG = JOB_TYPE.deployFlag
     }
     stages {
         stage('Get JobType') {
@@ -15,7 +18,7 @@ pipeline {
         stage('Build') {
             when {
                 expression {
-                    env.JOB_TYPE.buildFlag.toBoolean()
+                    env.BUILD_FLAG.toBoolean()
                 }
             }
             steps {
@@ -27,7 +30,7 @@ pipeline {
         stage('Analysis') {
             when {
                 expression {
-                    env.JOB_TYPE.testFlag.toBoolean()
+                    env.TEST_FLAG.toBoolean()
                 }
             }
             steps {
@@ -39,7 +42,7 @@ pipeline {
         stage('Deploy') {
             when {
                 expression {
-                    env.JOB_TYPE.deployFlag.toBoolean()
+                    env.DEPLOY_FLAG.toBoolean()
                 }
             }
             steps {
