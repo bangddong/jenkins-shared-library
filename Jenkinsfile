@@ -1,20 +1,28 @@
 @Library("shared-library") _
 
-def jobType = commonUtils.getJobType()
-
 pipeline {
     agent any
     stages {
-        stage('Get JobType') {
+        stage ('Initialize') {
+            script {
+                def jobType = commonUtils.getJobType()
+                env.buildFlag = jobType.buildFlag
+                env.testFlag = jobType.testFlag
+                env.deployFlag = jobType.deployFlag
+            }
+        }
+        stage('Check Environment Value') {
             steps {
-                echo "Job Type : ${jobType}"
+                echo "Build Flag : ${buildFlag}"
+                echo "Test Flag : ${testFlag}"
+                echo "Deploy Flag : ${deployFlag}"
             }
         }
 
         stage('Build') {
             when {
                 expression {
-                    jobType.buildFlag.toBoolean()
+                    env.buildFlag.toBoolean()
                 }
             }
             steps {
@@ -26,7 +34,7 @@ pipeline {
         stage('Analysis') {
             when {
                 expression {
-                    jobType.testFlag.toBoolean()
+                    env.testFlag.toBoolean()
                 }
             }
             steps {
@@ -38,7 +46,7 @@ pipeline {
         stage('Deploy') {
             when {
                 expression {
-                    jobType.deployFlag.toBoolean()
+                    env.deployFlag.toBoolean()
                 }
             }
             steps {
