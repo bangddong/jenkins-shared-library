@@ -20,7 +20,7 @@ pipeline {
             }
             steps {
                 echo "Build"
-                windriver5600
+                windriver5600()
             }
         }
 
@@ -32,7 +32,7 @@ pipeline {
             }
             steps {
                 echo "Test"
-                testPolyspace
+                testPolyspace()
             }
         }
 
@@ -44,7 +44,7 @@ pipeline {
             }
             steps {
                 echo "Deploy"
-                testVectorCast
+                deployToS3()
             }
         }
     }
