@@ -4,11 +4,13 @@ pipeline {
     agent any
     stages {
         stage ('Initialize') {
-            script {
-                def jobType = commonUtils.getJobType()
-                env.buildFlag = jobType.buildFlag
-                env.testFlag = jobType.testFlag
-                env.deployFlag = jobType.deployFlag
+            steps {
+                script {
+                    def jobType = commonUtils.getJobType()
+                    env.buildFlag = jobType.buildFlag
+                    env.testFlag = jobType.testFlag
+                    env.deployFlag = jobType.deployFlag
+                }
             }
         }
         stage('Check Environment Value') {
