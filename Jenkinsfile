@@ -3,7 +3,7 @@
 pipeline {
     agent any
     environment {
-        COMMIT_MSG = commomUtil.getCommitMsg()
+        COMMIT_MSG = commonUtil.getCommitMsg()
     }
     stages {
         stage('Test') {
