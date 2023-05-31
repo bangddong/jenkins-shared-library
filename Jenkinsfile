@@ -15,7 +15,7 @@ pipeline {
         stage('Build') {
             when {
                 expression {
-                    env.JOB_TYPE.build.toBoolean()
+                    env.JOB_TYPE.buildFlag.toBoolean()
                 }
             }
             steps {
@@ -27,7 +27,7 @@ pipeline {
         stage('Analysis') {
             when {
                 expression {
-                    env.JOB_TYPE.test.toBoolean()
+                    env.JOB_TYPE.testFlag.toBoolean()
                 }
             }
             steps {
@@ -39,7 +39,7 @@ pipeline {
         stage('Deploy') {
             when {
                 expression {
-                    env.JOB_TYPE.deploy.toBoolean()
+                    env.JOB_TYPE.deployFlag.toBoolean()
                 }
             }
             steps {

@@ -1,9 +1,9 @@
 def getJobType() {
     String commitMsg = sh(script : "git show -s --format=%B ${env.GIT_COMMIT}", returnStdout: true)
     def buildType = [
-            build : false,
-            deploy : false,
-            test : false
+            buildFlag : false,
+            deployFlag : false,
+            testFlag : false
     ]
 
     int beginIdx = commitMsg.indexOf('{')
@@ -11,9 +11,9 @@ def getJobType() {
     if (beginIdx == -1 || endIdx == -1) return buildType
 
     String tasks = commitMsg.substring(beginIdx + 1, endIdx)
-    buildType.build = tasks.contains("BD")
-    buildType.deploy = tasks.contains("DP")
-    buildType.test = tasks.contains("TST")
+    buildType.buildFlag = tasks.contains("BD")
+    buildType.deployFlag = tasks.contains("DP")
+    buildType.testFlag = tasks.contains("TST")
 
     return buildType
 }
