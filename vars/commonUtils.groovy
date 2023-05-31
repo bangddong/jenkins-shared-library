@@ -6,6 +6,6 @@ def getJobType() {
         int beginIdx = commitMsg.indexOf('{')
         int endIdx = commitMsg.indexOf('}')
 
-        return commitMsg.substring(beginIdx, endIdx + 1)
+        return commitMsg.substring(beginIdx + 1, endIdx)
     }
 }
