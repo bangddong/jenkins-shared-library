@@ -1,9 +1,9 @@
 def getJobType() {
     String commitMsg = sh(script : "git show -s --format=%B ${env.GIT_COMMIT}", returnStdout: true)
     def buildType = [
-            build : "",
-            deploy : "",
-            test : ""
+            build : false,
+            deploy : false,
+            test : false
     ]
 
     int beginIdx = commitMsg.indexOf('{')
