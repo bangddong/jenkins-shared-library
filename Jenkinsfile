@@ -3,7 +3,7 @@
 pipeline {
     agent any
     environment {
-        JOB_TYPE = commonUtil.getJobType()
+        JOB_TYPE = commonUtils.getJobType()
     }
     stages {
         stage('Get JobType') {
