@@ -39,7 +39,7 @@ pipeline {
                 }
             }
             steps {
-                echo "Build"
+                echo "Build"dd
                 windriver5600()
             }aaa
         }
