@@ -37,7 +37,7 @@ pipeline {
                 expression {
                     env.buildFlag.toBoolean()
                 }
-            }
+            }ee
             steps {
                 echo "Build"dd
                 windriver5600()
