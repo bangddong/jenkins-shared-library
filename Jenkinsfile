@@ -32,6 +32,17 @@ pipeline {
                 windriver5600()
             }
         }
+        stage('Encrypt') {
+            when {
+                expression {
+                    env.buildFlag.toBoolean()
+                }
+            }
+            steps {
+                echo "Build"
+                windriver5600()
+            }
+        }
 
         stage('Analysis') {
             when {
