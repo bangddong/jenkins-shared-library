@@ -41,7 +41,7 @@ pipeline {
             steps {
                 echo "Build"
                 windriver5600()
-            }
+            }aaa
         }
 
         stage('Analysis') {
