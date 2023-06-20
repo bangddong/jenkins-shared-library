@@ -13,7 +13,7 @@ pipeline {
                 }
             }
         }
-        stage('Check Environment Value') {
+        stage('Check Environment Value2') {
             steps {
                 echo "Build Flag : ${buildFlag}"
                 echo "Test Flag : ${testFlag}"
